@@ -4,6 +4,7 @@ import animal.*;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Cell {
 
@@ -26,9 +27,9 @@ public class Cell {
     private int grass;
     private String image = "\uD83C\uDF3F";
 
-    private HashMap<String, List<Animal>> hashMap = new HashMap<>();
+    private final ConcurrentHashMap<String, List<Animal>> hashMap = new ConcurrentHashMap<>();
 
-    private ArrayList<String> canBeEaten = new ArrayList<>(Arrays.asList("deer", "dug", "goat", "hog", "horse", "mouse", "rabbit", "sheep","boa","fox","buffalo","worm"));
+    private final ArrayList<String> canBeEaten = new ArrayList<>(Arrays.asList("deer", "dug", "goat", "hog", "horse", "mouse", "rabbit", "sheep","boa","fox","buffalo","worm"));
 
     public ArrayList<String> getCanBeEaten() {
         return canBeEaten;
@@ -110,7 +111,7 @@ public class Cell {
         System.out.print(this.image + "X" + grass);
     }
 
-    public HashMap<String, List<Animal>> getHashMap() {
+    public ConcurrentHashMap<String, List<Animal>> getHashMap() {
         return hashMap;
     }
 
